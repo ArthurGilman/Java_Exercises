@@ -1,4 +1,4 @@
-package basic.java.concepts;
+package core.model;
 
 
 import lombok.Setter;

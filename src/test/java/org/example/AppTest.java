@@ -1,5 +1,7 @@
 package org.example;
 
+import algorithms.Algo;
+import jvm.Profiling;
 import object.User;
 import org.junit.jupiter.api.Test;
 
@@ -51,14 +53,10 @@ public class AppTest
     }
 
     @Test
-    void TestAlgorithmON() {
-
+    public void memoryLeak() {
+        Profiling.memoryLeak();
     }
 
-    @Test
-    void TestA() {
-        User user = new User(5, "artur", "abc@mail.ru");
-        System.out.println(user);
-    }
+
 
 }

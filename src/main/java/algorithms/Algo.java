@@ -1,14 +1,10 @@
 package algorithms;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class Algo {
-    static final List<Integer> list = Arrays.asList(1, 2, 3, 4, 4, 6, 7, 8, 9, 10);
 
-    public boolean oN (int find) {
+    public boolean oN (List<Integer> list, int find) {
         for (int i = 0; i < list.size(); i++) {
             if (list.get(i) == find) {
                 return true;
@@ -17,18 +13,19 @@ public class Algo {
         return false;
     }
 
-    public boolean oN2 (int find) {
+    public long oN2 (List<Integer> list) {
+         long sum = 0;
         for (int i = 0; i < list.size(); i++) {
             for (int k = 0; k < list.size(); k++) {
-                if (list.get(i) + list.get(k) == find) {
-                    return true;
-                }
+                int a = list.get(i);
+                int b = list.get(k);
+                sum += a + b;
             }
         }
-        return false;
+        return sum;
     }
 
-    public boolean oLogN(int find) {
+    public boolean oLogN(List<Integer> list, int find) {
         int low = 0;
         int high = list.size() - 1;
 
@@ -47,9 +44,28 @@ public class Algo {
 
         return false;
     }
+    public long memoryON(List<Integer> list) {
+         long sum = 0;
+        for (int i = 0; i < list.size(); i++) {
+            // Суммируем текущий элемент с оставшимися элементами списка
+            for (int j = i + 1; j < list.size(); j++) {
+                sum += list.get(i) + list.get(j);
+            }
+        }
+        return sum;
+    }
+    public long memoryON2(List<Integer> list) {
+         long[][] matrix = new long[list.size()][list.size()];
+        for (int i = 0; i < list.size(); i++) {
+            for (int j = 0; j < list.size(); j++) {
+                // Вычисляем произведение пары элементов и сохраняем в массиве
+                matrix[i][j] = (long) list.get(i) * list.get(j);
+            }
+        }
+         return 0;
+    }
 
-    // --------------------------------------------
-    public boolean binarySearchLogNRecursive(int find) {
+    public boolean memoryOLogN(List<Integer> list, int find) {
         return binarySearchRecursive(list, find, 0, list.size() - 1);
     }
 
@@ -68,7 +84,5 @@ public class Algo {
             return true;
         }
     }
-
-
 
 }
