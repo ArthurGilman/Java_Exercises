@@ -1,9 +1,9 @@
 package core.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public interface DataModel {
     int getId();
-    Date getDateOfCreation();
+    LocalDate getDateOfCreation();
     boolean isObsolete();
 }

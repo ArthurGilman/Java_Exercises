@@ -1,9 +1,10 @@
 package core.model;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public interface Mutable {
-    Date getDateOfLastModified();
+    LocalDate getDateOfLastModified();
     int countOfChanges();
     String getLastModifier();
 }

@@ -1,5 +1,5 @@
 package core.model;
 
-public interface OrderedObject {
+public interface Orderable {
     long getSerialNumber();
 }
