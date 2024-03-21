@@ -2,7 +2,7 @@ package core.model;
 
 import java.time.LocalDate;
 
-public interface DataModel {
+public interface IDbRecord {
     int getId();
     LocalDate getDateOfCreation();
     boolean isObsolete();

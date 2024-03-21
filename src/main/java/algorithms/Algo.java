@@ -1,6 +1,8 @@
 package algorithms;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Algo {
 
@@ -44,15 +46,12 @@ public class Algo {
 
         return false;
     }
-    public long memoryON(List<Integer> list) {
-         long sum = 0;
+    public List<Integer> memoryON(List<Integer> list) {
+         List<Integer> list1 = new ArrayList<>(list.size());
         for (int i = 0; i < list.size(); i++) {
-            // Суммируем текущий элемент с оставшимися элементами списка
-            for (int j = i + 1; j < list.size(); j++) {
-                sum += list.get(i) + list.get(j);
-            }
+            list1.add(i);
         }
-        return sum;
+        return list1;
     }
     public long memoryON2(List<Integer> list) {
          long[][] matrix = new long[list.size()][list.size()];

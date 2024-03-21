@@ -27,7 +27,13 @@ public class Profiling {
     public static void memoryLeak() {
         Map<Person, Integer> map = new HashMap<>();
 
-        for(int i = 0; i < 500000; i++) {
+        for(int i = 0; i < 10000000; i++) {
+            if (i % 100_000 == 0) {
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                }
+            }
             map.put(new Person("artur"), 1);
         }
 

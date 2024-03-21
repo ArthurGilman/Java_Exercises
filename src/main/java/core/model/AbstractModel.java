@@ -4,7 +4,7 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 
-public abstract class AbstractModel implements DataModel {
+public abstract class AbstractModel implements IDbRecord {
     private final int id;
     private final LocalDate dateOfCreation;
 

@@ -1,5 +1,5 @@
 package core.model;
 
-public interface ReferenceData {
+public interface ReferenceData extends IDbRecord {
     int getReferenceCode();
 }

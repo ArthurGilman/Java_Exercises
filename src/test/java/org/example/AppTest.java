@@ -9,9 +9,7 @@ import java.math.BigDecimal;
 import java.util.LinkedList;
 import java.util.Objects;
 
-/**
- * Unit test for simple App.
- */
+
 public class AppTest
 {
     @Test
@@ -21,7 +19,11 @@ public class AppTest
         string.concat("Hello");
         System.out.println("String after concat : " + string);
 
-        String string1 = new String("Hello world");
+        String string1 = "Hello world";
+
+        string1 = string1 + 'a';
+        string = string + 'a';
+
         System.out.printf("Before intern() string == string1 : %b\n", string == string1);
         string1 = string1.intern();
         System.out.printf("After intern() string == string1 : %b\n", string == string1);
@@ -55,6 +57,7 @@ public class AppTest
     @Test
     public void memoryLeak() {
         Profiling.memoryLeak();
+
     }
 
 
