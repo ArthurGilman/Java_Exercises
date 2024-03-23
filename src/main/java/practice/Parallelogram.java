@@ -1,5 +1,7 @@
 package practice;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.math.BigDecimal;
 
 public class Parallelogram extends FlatShape {
@@ -7,9 +9,9 @@ public class Parallelogram extends FlatShape {
     private final BigDecimal height; // Высота: |
     private final BigDecimal side; // Боковая грань: /
 
-    public Parallelogram(BigDecimal base, BigDecimal height, BigDecimal side) {
+    public Parallelogram(@NotNull BigDecimal base, BigDecimal height, BigDecimal side, int scale) {
         super(base.multiply(height),
-                base.add(side).multiply(BigDecimal.TWO));
+                base.add(side).multiply(BigDecimal.TWO), scale);
         this.base = base;
         this.height = height;
         this.side = side;
