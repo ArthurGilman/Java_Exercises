@@ -1,5 +1,5 @@
 package practice;
 
 public interface Scalable {
-    int getScale();
+    Integer getScale();
 }

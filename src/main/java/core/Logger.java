@@ -6,15 +6,13 @@ import java.io.IOException;
 import java.util.TimeZone;
 
 public class Logger {
-    private String fileName;
-    private final BufferedWriter writer;
+    private static Logger logger = new Logger("logs.txt");
+    private BufferedWriter writer;
 
-    public Logger(String fileName) throws IOException {
-        this.fileName = fileName;
-        writer = new BufferedWriter(new FileWriter(fileName));
+    private Logger(String fileName) {
     }
 
-    public void trace(String msg) {
+    public static void trace(String msg) {
         try {
             writer.write("[TRACE] " + msg);
             writer.flush();
@@ -22,7 +20,7 @@ public class Logger {
         }
     }
 
-    public void debug(String msg) {
+    public static void debug(String msg) {
         try {
             writer.write("[DEBUG] " + msg);
             writer.flush();
@@ -30,7 +28,7 @@ public class Logger {
         }
     }
 
-    public void error(String msg) {
+    public static void error(String msg) {
         try {
             writer.write("[ERROR] " + msg);
             writer.flush();

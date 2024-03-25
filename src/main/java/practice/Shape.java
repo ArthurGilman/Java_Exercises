@@ -5,21 +5,23 @@ import org.jetbrains.annotations.NotNull;
 
 import java.math.BigDecimal;
 
-@Getter
+
 public abstract class Shape implements Scalable {
 
+    @Getter
     private final BigDecimal area;
-    private int scale;
+    private Integer scale;
 
 
 
-    Shape(@NotNull BigDecimal area, int scale) {
+    Shape(@NotNull BigDecimal area, Integer scale) {
+        if (area.compareTo(BigDecimal.ZERO) < 0) throw new IllegalArgumentException("Area can't be negative");
         this.area = area;
         this.scale = scale;
     }
 
     @Override
-    public int getScale() {
+    public Integer getScale() {
         return scale;
     }
 }

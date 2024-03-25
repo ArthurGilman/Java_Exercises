@@ -8,9 +8,9 @@ public class Circle extends FlatShape implements Round {
 
     private final BigDecimal radius;
 
-    public Circle(@NotNull BigDecimal radius, int scale) {
-        super(radius.pow(2).multiply(BigDecimalUtils.PI),
-                radius.multiply(BigDecimalUtils.PI).multiply(BigDecimal.TWO), scale);
+    public Circle(@NotNull BigDecimal radius, Integer scale) {
+        super(radius.pow(2).multiply(ShapeUtils.PI),
+                radius.multiply(ShapeUtils.PI).multiply(BigDecimal.TWO), scale);
         this.radius = radius;
     }
 

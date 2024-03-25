@@ -10,9 +10,9 @@ public class Sphere extends VolumetricShape implements Round {
     // Поэтому не вполне корректно делать и наследование сферы от круга, и делать круг как сферу с нулевым объёмом
     private final BigDecimal radius;
 
-    public Sphere(@NotNull BigDecimal radius, BigDecimal weight, int scale) {
-        super(radius.pow(3).multiply(BigDecimalUtils.PI),
-                radius.pow(3).multiply(BigDecimalUtils.PI).multiply(BigDecimal.valueOf(4)).divide(BigDecimal.valueOf(3), RoundingMode.HALF_UP),
+    public Sphere(@NotNull BigDecimal radius, BigDecimal weight, Integer scale) {
+        super(radius.pow(3).multiply(ShapeUtils.PI),
+                radius.pow(3).multiply(ShapeUtils.PI).multiply(BigDecimal.valueOf(4)).divide(BigDecimal.valueOf(3), RoundingMode.HALF_UP),
                 weight, scale);
         this.radius = radius;
     }
