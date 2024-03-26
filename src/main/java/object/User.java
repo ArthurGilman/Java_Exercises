@@ -1,16 +1,20 @@
 package object;
 
+import lombok.Getter;
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Objects;
 
-public class User {
+public class User implements Comparable<User> {
+    @Getter
     int id;
+    @Getter
     String name;
     String email;
 
-    public User(int id, String name, String email) {
+    public User(int id, String name) {
         this.id = id;
         this.name = name;
-        this.email = email;
     }
 
     @Override
@@ -40,5 +44,10 @@ public class User {
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 '}';
+    }
+
+    @Override
+    public int compareTo(@NotNull User o) {
+        return name.length() - o.name.length();
     }
 }

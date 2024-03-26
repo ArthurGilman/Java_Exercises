@@ -2,7 +2,6 @@ package jvm;
 
 import algorithms.Algo;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,7 +24,7 @@ public class Profiling {
     }
 
     public static void memoryLeak() {
-        Map<Person, Integer> map = new HashMap<>();
+        Map<BadPerson, Integer> map = new HashMap<>();
 
         for(int i = 0; i < 10000000; i++) {
             if (i % 100_000 == 0) {
@@ -34,7 +33,7 @@ public class Profiling {
                 } catch (InterruptedException e) {
                 }
             }
-            map.put(new Person("artur"), 1);
+            map.put(new BadPerson(1,"artur"), 1);
         }
 
     }

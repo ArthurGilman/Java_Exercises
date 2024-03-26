@@ -6,7 +6,7 @@ import org.jetbrains.annotations.NotNull;
 import java.math.BigDecimal;
 
 
-public abstract class Shape implements Scalable {
+public abstract class Shape implements Scalable, Comparable<Shape> {
 
     @Getter
     private final BigDecimal area;
@@ -23,5 +23,12 @@ public abstract class Shape implements Scalable {
     @Override
     public Integer getScale() {
         return scale;
+    }
+
+    @Override
+    public int compareTo(@NotNull Shape o) {
+        if (area.doubleValue() - o.getArea().doubleValue() > 0) return 1;
+        else if (area.doubleValue() - o.getArea().doubleValue() == 0) return 0;
+        return -1;
     }
 }
