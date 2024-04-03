@@ -10,7 +10,7 @@ public abstract class Shape implements Scalable, Comparable<Shape> {
 
     @Getter
     private final BigDecimal area;
-    private Integer scale;
+    private final Integer scale;
 
 
 

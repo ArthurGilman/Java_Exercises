@@ -1,0 +1,10 @@
+I just want to remove starter module - it's only dependencies collector and run application, so I'm trying to add java code to my parent module. What's more, when I just created @SpringBootApplication class in my parent module the application starts, but spring context doesn't see any beans from other modules –
+Gajek
+ Feb 24, 2020 at 23:24
+So why do you want a multi-module project at all? What's in the DatabaseApi ? And where is the rest of your business logic? –
+Weso
+ Feb 24, 2020 at 23:38
+Rest of business logic is in other modules - just skipped when I pasted it here. DatabaseAPI is a module for database communication, it's in seperate module enable importing that jar also for other application. –
+Gajek
+ Feb 24, 2020 at 23:45
+This is the correct answer. Parent modules cannot contain Java code.

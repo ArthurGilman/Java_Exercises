@@ -1,18 +1,16 @@
 package org.example;
 
-import core.base.Person;
+
 import jvm.BadPerson;
 import jvm.GoodPerson;
-import lombok.Getter;
 import object.User;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import org.junit.jupiter.api.Test;
 import practice.FlatShape;
 import practice.Parallelogram;
 import practice.Shape;
 import practice.Square;
 
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -31,6 +29,7 @@ public class CollectionsTest {
         treeMap.put(user_1, user_1.getName());
         treeMap.put(user_2, user_2.getName());
         treeMap.forEach((u, s) -> System.out.println(u));
+
     }
 
     @Test
@@ -39,12 +38,7 @@ public class CollectionsTest {
         User user_4 = new User(4, "mariaDB");
         User user_1 = new User(1, "leo");
         User user_2 = new User(2, "arturito");
-        TreeMap<User, String> treeMap = new TreeMap<>(new Comparator<User>() {
-            @Override
-            public int compare(User o1, User o2) {
-                return o1.getId() - o2.getId() ;
-            }
-        });
+        TreeMap<User, String> treeMap = new TreeMap<>(Comparator.comparingInt(User::getId));
         treeMap.put(user_3, user_3.getName());
         treeMap.put(user_4, user_4.getName());
         treeMap.put(user_1, user_1.getName());
