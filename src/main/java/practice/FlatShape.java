@@ -12,8 +12,7 @@ public abstract class FlatShape extends Shape {
 
     public FlatShape(@NotNull BigDecimal area, BigDecimal perimeter, Integer scale) {
         super(area, scale);
-        if (perimeter.compareTo(BigDecimal.ZERO) < 0) throw new IllegalArgumentException("Perimeter of Flat Shape can't be negative");
-        this.perimeter = perimeter;
+        this.perimeter = ValidationUtils.validateNotPositive(perimeter);
     }
 
 }

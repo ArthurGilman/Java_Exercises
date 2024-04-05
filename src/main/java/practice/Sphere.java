@@ -11,8 +11,8 @@ public class Sphere extends VolumetricShape implements Round {
     private final BigDecimal radius;
 
     public Sphere(@NotNull BigDecimal radius, BigDecimal weight, Integer scale) {
-        super(radius.pow(3).multiply(ShapeUtils.PI),
-                radius.pow(3).multiply(ShapeUtils.PI).multiply(BigDecimal.valueOf(4)).divide(BigDecimal.valueOf(3), RoundingMode.HALF_UP),
+        super(ValidationUtils.validateNotPositive(radius).pow(3).multiply(ShapeUtils.PI),
+                ValidationUtils.validateNotPositive(radius).pow(3).multiply(ShapeUtils.PI).multiply(BigDecimal.valueOf(4)).divide(BigDecimal.valueOf(3), RoundingMode.HALF_UP),
                 weight, scale);
         this.radius = radius;
     }

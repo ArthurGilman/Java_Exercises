@@ -12,10 +12,8 @@ public abstract class VolumetricShape extends Shape {
 
     public VolumetricShape(@NotNull BigDecimal area, BigDecimal volume, BigDecimal weight, Integer scale) {
         super(area, scale);
-        if (volume.compareTo(BigDecimal.ZERO) < 0) throw new IllegalArgumentException("Volume of Volumetric Shape can't be negative");
-        if (weight.compareTo(BigDecimal.ZERO) < 0) throw new IllegalArgumentException("Weight of Volumetric Shape can't be negative");
-        this.volume = volume;
-        this.weight = weight;
+        this.volume = ValidationUtils.validateNotPositive(volume);
+        this.weight = ValidationUtils.validateNotPositive(weight);
     }
 
 }

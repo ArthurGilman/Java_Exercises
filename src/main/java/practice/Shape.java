@@ -15,10 +15,8 @@ public abstract class Shape implements Scalable, Comparable<Shape> {
 
 
     Shape(@NotNull BigDecimal area, Integer scale) {
-        if (area.compareTo(BigDecimal.ZERO) < 0) throw new IllegalArgumentException("Area can't be negative");
-        if (scale < 0) throw new IllegalArgumentException("Scale can't be negative");
-        this.area = area;
-        this.scale = scale;
+        this.area = ValidationUtils.validateNotPositive(area);
+        this.scale = ValidationUtils.validateNotNull(scale);
     }
 
     @Override
